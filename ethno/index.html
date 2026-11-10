@@ -309,7 +309,8 @@
       + (D.demo ? '' : langSwitch()) + '</div>'
       + '<div class="wrap"><div class="hero-body">'
       + '<p class="kind">' + esc(L(D.kind)) + '</p>'
-      + '<h1>' + esc(name) + '</h1>'
+      // длинное название уменьшаем, чтобы оно помещалось на экране телефона
+      + '<h1' + (name.length > 7 ? ' style="font-size: clamp(44px, calc((100vw - 32px) / ' + (name.length * 0.64).toFixed(2) + '), 148px)"' : '') + '>' + esc(name) + '</h1>'
       + '<p class="tagline">' + esc(L(D.tagline)) + '</p>'
       + (D.rating ? '<p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><span>' + t('rating', { v: esc(D.rating.value), n: D.rating.count }) + '</span></p>' : '')
       + '<div class="actions">'
